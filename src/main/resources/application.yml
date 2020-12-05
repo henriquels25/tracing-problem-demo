@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: tracing-problem-demo
+  cloud:
+    function:
+      routing-expression: "new String(headers['country'])"
+    stream:
+      bindings:
+        functionRouter-in-0:
+          destination: people
+        brazilians-out-0:
+          destination: brazilian-people
+        americans-out-0:
+          destination: american-people
+        germans-out-0:
+          destination: german-people
